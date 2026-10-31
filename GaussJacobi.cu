@@ -92,6 +92,16 @@ int main(){
     cout<<"Alpha max: "<<alphaMax<<endl;
     if (alphaMax > 1){
         cout<<"Alpha maior que 1";
+        delete[] matrizA_h;
+        delete[] vetorB_h;
+        delete[] vetXAntigo_h;
+        delete[] vetXNovo_h;
+        delete[] vetSaida;
+        cudaFree(matrizA_d);
+        cudaFree(vetorB_d);
+        cudaFree(vetXAntigo_d);
+        cudaFree(vetXNovo_d);
+        cudaFree(norma_d);
         exit(-1);
     }
     do{
@@ -117,9 +127,11 @@ int main(){
     delete[] vetXAntigo_h;
     delete[] vetXNovo_h;
     delete[] vetAlphas;
+    delete[] vetSaida;
     cudaFree(matrizA_d);
     cudaFree(vetorB_d);
     cudaFree(vetXAntigo_d);
     cudaFree(vetXNovo_d);
+    cudaFree(norma_d);
     return 0;
 }
